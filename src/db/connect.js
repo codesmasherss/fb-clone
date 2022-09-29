@@ -4,8 +4,8 @@ mongoose.connect('mongodb://localhost:27017/fb-api', {
    useNewUrlParser: true
 });
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-db.once('open', () => {
-   console.log('connected successfully');
+mongoose.connection.once('open', () => {
+   console.log('Database has been connected successfully.');
 });

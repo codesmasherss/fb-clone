@@ -20,11 +20,10 @@ router.get('/posts', async (req, res) => {
 // Post requests
 router.post('/addPost', async (req, res) => {
    try {
-      const newPost = new PostModel(req.body);
-
-      await newPost.save();
+      const newPost = await PostModel.create(req.body);
 
       res.send({
+         newPost,
          message: 'Post has been added successfully.'
       });
    } catch (e) {

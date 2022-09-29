@@ -43,7 +43,7 @@ class Model {
          body: JSON.stringify(thePost)
       });
 
-      // Add the post to the UI
+      // Add the post to the POSTs
       this.posts.unshift(thePost);
    }
 
@@ -66,7 +66,7 @@ class Model {
       let updatedPost = this.posts.filter((post) => {
          if (post._id === postId) {
             // Check if liked
-            let likeIndex = post.likes.findIndex((like) => like == userData.userId);
+            let likeIndex = post.likes.findIndex((userId) => userId == userData.userId);
 
             if (likeIndex === -1) {
                // Add the like
@@ -94,16 +94,12 @@ class Model {
 
 class View {
    constructor() {
-      this.postsList = this.getElement('#posts-list');
-      this.postForm = this.getElement('#create-post-form');
-      this.postFormText = this.getElement('#post-form-text');
-      this.postFormImage = this.getElement('#post-form-image');
-      this.postFormImageInput = this.getElement('#post-form-image-input');
-      this.postFormImageContainer = this.getElement('#image-input-container');
-   }
-
-   getElement(selector) {
-      return document.querySelector(selector);
+      this.postsList = document.querySelector('#posts-list');
+      this.postForm = document.querySelector('#create-post-form');
+      this.postFormText = document.querySelector('#post-form-text');
+      this.postFormImage = document.querySelector('#post-form-image');
+      this.postFormImageInput = document.querySelector('#post-form-image-input');
+      this.postFormImageContainer = document.querySelector('#image-input-container');
    }
 
    generatePost(data, userData) {
@@ -114,7 +110,7 @@ class View {
                     <img src="./src/images/dp.jpg" alt="">
                 </div>
                 <div class="post-info">
-                    <p class="name">Mohammad Nabi</p>
+                    <p class="name">Khalil Ahmad</p>
                     <span class="time">${this.timeSince(data.date)}</span>
                 </div>
                 <i class="fas fa-trash delete" style="color: darkred" id="delete-${data._id}"></i>
@@ -315,15 +311,15 @@ class Controller {
       this.view.imageInputContainerHandler();
    }
 
-   async init() {
+   init = async () => {
       // Get data from database
       await this.model.loadAllPosts();
 
       // Display it on the screen
-      this.onPostsListChanged(this.model.posts, this.model.getUserData);
-   }
+      this.postsListChanged(this.model.posts, this.model.getUserData);
+   };
 
-   onPostsListChanged = (posts) => {
+   postsListChanged = (posts) => {
       this.view.displayPosts(posts, this.model.getUserData);
    };
 
@@ -331,19 +327,19 @@ class Controller {
       await this.model.addPost(post);
 
       // Also, as there is a change in posts-list, let's call the onPostsListChanged
-      this.onPostsListChanged(this.model.posts);
+      this.postsListChanged(this.model.posts);
    };
 
    deletePost = async (postId) => {
       await this.model.deletePost(postId);
 
-      this.onPostsListChanged(this.model.posts);
+      this.postsListChanged(this.model.posts);
    };
 
    likeAPost = async (postId) => {
       await this.model.likeAPost(postId);
 
-      this.onPostsListChanged(this.model.posts);
+      this.postsListChanged(this.model.posts);
    };
 }
 

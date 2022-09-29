@@ -60,7 +60,7 @@
                <ul>
                   <li>
                      <span class="profile"></span>
-                     <p>Mohammad Nabi</p>
+                     <p>Khalil Ahmad</p>
                   </li>
                   <li>
                      <i class="fa fa-user-friends"></i>
@@ -129,11 +129,11 @@
                   </div>
 
                   <div class="story">
-                     <img src="./src/images/home.jpg" alt="Mohammad Nabi's story" />
+                     <img src="./src/images/home.jpg" alt="Khalil Ahmad's story" />
                      <div class="dp-container">
                         <img src="./src/images/road.jpg" alt="" />
                      </div>
-                     <p class="name">Mohammad Nabi</p>
+                     <p class="name">Khalil Ahmad</p>
                   </div>
 
                   <div class="story">
@@ -170,7 +170,7 @@
                         <input
                            id="post-form-text"
                            type="text"
-                           placeholder="What's on your mind, Mohammad Nabi ?"
+                           placeholder="What's on your mind, Khalil Ahmad ?"
                         />
                      </div>
                      <div>
@@ -196,26 +196,66 @@
                </div>
 
                <div id="posts-list">
-                  <div class="post">
+                  <div class="post" id="38163123">
                      <div class="post-top">
                         <div class="dp">
-                           <img src="./src/images/road.jpg" alt="" />
+                           <img src="./src/images/dp.jpg" alt="" />
                         </div>
                         <div class="post-info">
-                           <p class="name">Mohammad Nabi Sharma</p>
-                           <span class="time">12 hrs ago</span>
+                           <p class="name">Khalil Ahmad</p>
+                           <span class="time">10 mins ago</span>
                         </div>
-                        <i class="fas fa-ellipsis-h"></i>
+                        <i
+                           class="fas fa-trash delete"
+                           style="color: darkred"
+                           id="delete-38163123"
+                        ></i>
                      </div>
 
                      <div class="post-content">
-                        Roses are red <br />
-                        Violets are blue <br />
-                        I'm ugly & you are too😏
+                        Good morning, everyone!
+                        <img src="./src/images/mountains.jpg" />
                      </div>
 
                      <div class="post-bottom">
+                        <div class="action" id="like-38163123" style="background: #eee">
+                           <i class="far fa-thumbs-up"></i>
+                           <span>Liked</span>
+                        </div>
                         <div class="action">
+                           <i class="far fa-comment"></i>
+                           <span>Comment</span>
+                        </div>
+                        <div class="action">
+                           <i class="fa fa-share"></i>
+                           <span>Share</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="post" id="18723467">
+                     <div class="post-top">
+                        <div class="dp">
+                           <img src="./src/images/dp.jpg" alt="" />
+                        </div>
+                        <div class="post-info">
+                           <p class="name">Khalil Ahmad</p>
+                           <span class="time">2 days ago</span>
+                        </div>
+                        <i
+                           class="fas fa-trash delete"
+                           style="color: darkred"
+                           id="delete-18723467"
+                        ></i>
+                     </div>
+
+                     <div class="post-content">
+                        So what is JavaScript Hoisting? It refers to the process whereby the
+                        interpreter appears to move the declaration of functions, variables or
+                        classes to the top of their scope, prior to execution of the code.
+                     </div>
+
+                     <div class="post-bottom">
+                        <div class="action" id="like-18723467" style="background: transparent">
                            <i class="far fa-thumbs-up"></i>
                            <span>Like</span>
                         </div>
@@ -304,7 +344,6 @@
             </div>
          </div>
       </div>
-
-      <script src="./script.js"></script>
    </body>
+   <script src="./script.js"></script>
 </html>
